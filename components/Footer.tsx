@@ -3,9 +3,10 @@
  * Author: Rahul Thakur
  * Date: October 27, 2026
  * Description: The Footer sits at the bottom of every page.
- * It takes no props. It does no processing; it simply lays out the school's
- * contact details in a responsive row. Its output is the school's name,
- * address, phone number and email address.
+ * It takes no props.
+ * It displays the school's contact information.
+ * It shows the school name, address, phone number, and email.
+ * Tailwind CSS is used to make the footer responsive.
  */
 
 // ===== Footer =====
@@ -17,13 +18,13 @@ const Footer = () => {
         <p className="font-semibold text-white">New Generation High School</p>
 
         {/* Address */}
-        <p>123 Learning Avenue, Toronto, ON M5V 2T6</p>
+        <p>123 School Avenue, Calgary, AB</p>
 
         {/* Phone */}
         <p>
           Phone:{" "}
-          <a href="tel:+14165550123" className="hover:text-amber-300">
-            (416) 555-0123
+          <a href="tel:+14035550123" className="hover:text-amber-300">
+            403-555-0123
           </a>
         </p>
 

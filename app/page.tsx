@@ -5,7 +5,7 @@
  */
 
 // main page of the student portal
-import StudentPortal from "@/components/StudentPortal";
+import StudentPortal from "../components/StudentPortal";
 
 const HomePage = () => {
   return <StudentPortal />;

@@ -9,7 +9,7 @@
  * Tailwind CSS is used to make the footer responsive.
  */
 
-// ===== Footer =====
+
 const Footer = () => {
   return (
     <footer className="bg-indigo-950 text-indigo-100">
@@ -17,10 +17,9 @@ const Footer = () => {
         {/* School name */}
         <p className="font-semibold text-white">New Generation High School</p>
 
-        {/* Address */}
         <p>123 School Avenue, Calgary, AB</p>
 
-        {/* Phone */}
+
         <p>
           Phone:{" "}
           <a href="tel:+14035550123" className="hover:text-amber-300">
@@ -28,7 +27,6 @@ const Footer = () => {
           </a>
         </p>
 
-        {/* Email */}
         <p>
           Email:{" "}
           <a

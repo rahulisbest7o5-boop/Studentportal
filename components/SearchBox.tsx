@@ -6,7 +6,7 @@ interface SearchBoxProps {
   onChange: (text: string) => void;
 }
 
-// ===== SearchBox =====
+
 const SearchBox = ({ value, onChange }: SearchBoxProps) => {
   return (
     <div className="mb-6">

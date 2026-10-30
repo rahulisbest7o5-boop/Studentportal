@@ -28,13 +28,13 @@ const StudentPortal = () => {
   const [students, setStudents] = useState<Student[]>(initialStudents);
   const [searchText, setSearchText] = useState("");
 
-  // Derived values (worked out on every render, not state) 
+  // Derived values (worked out on every render, not state)
   const search = searchText.trim().toLowerCase();
   const filteredStudents = students.filter((student) =>
     `${student.firstName} ${student.lastName}`.toLowerCase().includes(search),
   );
 
-  // Event handlers 
+  // Event handlers
   const handleAdd = (newStudent: Omit<Student, "id">) => {
     // New id = one more than the highest id in the list (1 if the list is empty)
     const nextId =
@@ -52,7 +52,7 @@ const StudentPortal = () => {
     setStudents([]);
   };
 
-  // Output 
+  // Output
   return (
     <div className="mx-auto max-w-6xl space-y-12 px-4 py-10">
       {/* Overview section */}
@@ -79,7 +79,9 @@ const StudentPortal = () => {
 
       {/* Add a student section */}
       <section id="add">
-        <h2 className="mb-4 text-2xl font-bold text-slate-900">Add a student</h2>
+        <h2 className="mb-4 text-2xl font-bold text-slate-900">
+          Add a student
+        </h2>
         <AddStudent onAdd={handleAdd} />
       </section>
     </div>

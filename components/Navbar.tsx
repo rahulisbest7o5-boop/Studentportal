@@ -9,7 +9,7 @@
  * Tailwind CSS is used to style the navigation bar.
  */
 
-// Navigation links
+
 const navLinks = [
   { name: "Overview", href: "#overview" },
   { name: "Students", href: "#students" },
@@ -23,7 +23,6 @@ const Navbar = () => {
         {/* School name */}
         <h1 className="text-xl font-bold">New Generation High School</h1>
 
-        {/* Navigation links */}
         <div className="flex gap-4">
           {navLinks.map((link) => (
             <a

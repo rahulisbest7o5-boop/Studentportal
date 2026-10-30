@@ -2,23 +2,33 @@
 
 import { useState } from "react";
 
-import SearchBox from "@/components/SearchBox"; 
+import AddStudent from "@/components/AddStudent";
+import SearchBox from "@/components/SearchBox";
 import StatsPanel from "@/components/StatsPanel";
 import StudentList from "@/components/StudentList";
 import { students as initialStudents, type Student } from "@/data/students";
 
 const StudentPortal = () => {
-  // ===== State =====
+  // State
   const [students, setStudents] = useState<Student[]>(initialStudents);
-  const [searchText, setSearchText] = useState(""); 
+  const [searchText, setSearchText] = useState("");
 
-  // ===== Derived values (worked out on every render, not state) ===== 
-  const search = searchText.trim().toLowerCase(); 
-  const filteredStudents = students.filter((student) => 
-    `${student.firstName} ${student.lastName}`.toLowerCase().includes(search), 
-  ); 
+  // Derived values (worked out on every render, not state) 
+  const search = searchText.trim().toLowerCase();
+  const filteredStudents = students.filter((student) =>
+    `${student.firstName} ${student.lastName}`.toLowerCase().includes(search),
+  );
 
-  // ===== Event handlers =====
+  // Event handlers 
+  const handleAdd = (newStudent: Omit<Student, "id">) => {
+    // New id = one more than the highest id in the list (1 if the list is empty)
+    const nextId =
+      students.length === 0
+        ? 1
+        : Math.max(...students.map((student) => student.id)) + 1;
+    setStudents([...students, { id: nextId, ...newStudent }]);
+  };
+
   const handleRemove = (id: number) => {
     setStudents(students.filter((student) => student.id !== id));
   };
@@ -27,7 +37,7 @@ const StudentPortal = () => {
     setStudents([]);
   };
 
-  // ===== Output =====
+  // Output 
   return (
     <div className="mx-auto max-w-6xl space-y-12 px-4 py-10">
       {/* Overview section */}
@@ -48,14 +58,14 @@ const StudentPortal = () => {
             Clear all
           </button>
         </div>
-        <SearchBox value={searchText} onChange={setSearchText} /> 
-        <StudentList students={filteredStudents} onRemove={handleRemove} /> 
+        <SearchBox value={searchText} onChange={setSearchText} />
+        <StudentList students={filteredStudents} onRemove={handleRemove} />
       </section>
 
       {/* Add a student section */}
       <section id="add">
         <h2 className="mb-4 text-2xl font-bold text-slate-900">Add a student</h2>
-        <p className="text-slate-600">Coming next.</p>
+        <AddStudent onAdd={handleAdd} />
       </section>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import SearchBox from "@/components/SearchBox"; 
 import StatsPanel from "@/components/StatsPanel";
 import StudentList from "@/components/StudentList";
 import { students as initialStudents, type Student } from "@/data/students";
@@ -9,6 +10,13 @@ import { students as initialStudents, type Student } from "@/data/students";
 const StudentPortal = () => {
   // ===== State =====
   const [students, setStudents] = useState<Student[]>(initialStudents);
+  const [searchText, setSearchText] = useState(""); 
+
+  // ===== Derived values (worked out on every render, not state) ===== 
+  const search = searchText.trim().toLowerCase(); 
+  const filteredStudents = students.filter((student) => 
+    `${student.firstName} ${student.lastName}`.toLowerCase().includes(search), 
+  ); 
 
   // ===== Event handlers =====
   const handleRemove = (id: number) => {
@@ -40,7 +48,8 @@ const StudentPortal = () => {
             Clear all
           </button>
         </div>
-        <StudentList students={students} onRemove={handleRemove} />
+        <SearchBox value={searchText} onChange={setSearchText} /> 
+        <StudentList students={filteredStudents} onRemove={handleRemove} /> 
       </section>
 
       {/* Add a student section */}

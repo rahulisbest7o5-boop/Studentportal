@@ -44,7 +44,7 @@ const StudentCard = ({ student, onRemove }: StudentCardProps) => {
         </button>
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-3">
+      <div className="mt-4">
         <button
           type="button"
           onClick={() => setShowDetails((previous) => !previous)}
@@ -52,24 +52,20 @@ const StudentCard = ({ student, onRemove }: StudentCardProps) => {
         >
           {showDetails ? "Hide details" : "Show details"}
         </button>
-
-        {isHonourRoll && (
-          <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700">
-            Honour roll
-          </span>
-        )}
       </div>
 
       {showDetails && (
         <div className="mt-4 rounded-lg bg-slate-50 p-3 text-sm text-slate-700">
-          <p>
-            <span className="font-semibold">Average:</span> {student.average}
-          </p>
-          {isHonourRoll && (
-            <p className="mt-1 text-emerald-700">
-              This student is on the honour roll.
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p>
+              <span className="font-semibold">Average:</span> {student.average}
             </p>
-          )}
+            {isHonourRoll && (
+              <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700">
+                Honour roll
+              </span>
+            )}
+          </div>
         </div>
       )}
     </article>

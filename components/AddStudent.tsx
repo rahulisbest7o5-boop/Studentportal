@@ -1,3 +1,17 @@
+/*
+ * File: components/AddStudent.tsx
+ * Author: Aman Kumar
+ * Date: October 30, 2026
+ * Description: AddStudent lets the user add a new student to the portal.
+ * Its input is one prop, onAdd, a function from StudentPortal that receives the
+ * new student's first name, last name, grade and average (without an id).
+ * It keeps its four inputs in its own state, starting with empty names, grade 9
+ * and average 70, and every input is controlled by that state.
+ * When Add student is clicked, nothing happens if either name is empty;
+ * otherwise it sends the student up through onAdd and resets the inputs.
+ * Its output is the four inputs and the Add student button.
+ */
+
 "use client";
 
 import { useState } from "react";

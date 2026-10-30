@@ -1,12 +1,25 @@
+/*
+ * File: components/SearchBox.tsx
+ * Author: Aman Kumar
+ * Date: October 30, 2026
+ * Description: SearchBox is the text box used to search the student list by name.
+ * Its inputs are two props from StudentPortal: value, the current search text,
+ * and onChange, a function to call when the text changes.
+ * It does not keep the search text itself; it is a controlled input, so it always
+ * shows the value it is given and sends every keystroke up through onChange.
+ * StudentPortal then filters the list, so the cards update as the user types.
+ * Its output is a labelled text input.
+ */
+
 "use client";
 
-// ===== Props =====
+// Props
 interface SearchBoxProps {
   value: string;
   onChange: (text: string) => void;
 }
 
-// ===== SearchBox =====
+// SearchBox
 const SearchBox = ({ value, onChange }: SearchBoxProps) => {
   return (
     <div className="mb-6">

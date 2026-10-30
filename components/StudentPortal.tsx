@@ -1,3 +1,18 @@
+/*
+ * File: components/StudentPortal.tsx
+ * Author: Aman Kumar
+ * Date: October 30, 2026
+ * Description: StudentPortal is the main component of the portal and owns its data.
+ * It takes no props; it keeps two things in state: the list of students (starting
+ * with the students from data/students.ts) and the text typed in the search box.
+ * On every render it works out the filtered list by comparing each full name to
+ * the search text in lowercase, so capital letters do not matter.
+ * Adding, removing and clearing all always create a new array, and every new
+ * student gets an id one higher than the highest id in the list.
+ * Its output is the Overview, Students and Add a student sections, which pass the
+ * data down to StatsPanel, SearchBox, StudentList and AddStudent.
+ */
+
 "use client";
 
 import { useState } from "react";
